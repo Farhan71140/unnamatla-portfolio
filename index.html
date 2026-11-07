@@ -273,6 +273,20 @@ h2{font-size:clamp(38px,6vw,68px)}
 @media(hover:none){.cur{display:none}}
 .hero h1 .ch{display:inline-block}
 .hero .wrap>*{min-width:0}
+
+/* ===== v4: menu + anchor fixes ===== */
+.menu{clip-path:none!important;opacity:0;visibility:hidden;pointer-events:none;transform:none;
+  transition:opacity .35s ease,visibility 0s .35s}
+.menu.open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .35s ease}
+.js .reveal{filter:none!important}
+.js .reveal.in{transition:opacity .8s var(--d,0s),transform .9s var(--d,0s) cubic-bezier(.2,.7,.2,1)}
+@media(max-width:920px){
+  html{scroll-behavior:auto}
+  .blob{filter:blur(48px)}.blob.two{display:none}
+  nav,.menu{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+  .js .reveal{transform:translateY(24px)}
+  .js .job.reveal{transform:translateY(24px)}
+}
 </style>
 </head>
 <body>
@@ -570,6 +584,23 @@ if(fine&&!reduce){
   document.addEventListener('pointerover',e=>cur.classList.toggle('big',!!e.target.closest('a,button,.proj,.sk,.cert')));
   (function loop(){x+=(tx-x)*.18;y+=(ty-y)*.18;cur.style.transform='translate('+x+'px,'+y+'px)';requestAnimationFrame(loop)})();
 }
+
+/* ===== v4: reliable anchor navigation ===== */
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  const id=a.getAttribute('href');
+  const el=id==='#top'?document.body:document.querySelector(id);
+  if(!el)return;
+  e.preventDefault();
+  const wasOpen=menu.classList.contains('open');
+  toggle(false);
+  /* show everything in the destination right away so nothing is faded or hidden */
+  el.querySelectorAll('.reveal').forEach(r=>{r.style.setProperty('--d','0s');r.classList.add('in')});
+  setTimeout(()=>{
+    const y=id==='#top'?0:el.getBoundingClientRect().top+scrollY-64;
+    scrollTo({top:y,behavior:reduce?'auto':'smooth'});
+    history.replaceState(null,'',id);
+  },wasOpen?380:0);
+}));
 </script>
 </body>
 </html>
