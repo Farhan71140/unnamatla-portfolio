@@ -50,8 +50,8 @@ nav ul a:hover{color:var(--ink)}
 .status{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;font-size:14px;color:var(--mute);margin-bottom:26px;background:var(--bg2)}
 .status b{width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 0 rgba(74,222,128,.6);animation:pulse 2s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 10px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
-.hero h1{font-size:clamp(52px,9vw,112px);font-weight:800;line-height:.92}
-.hero h1 span{display:block;color:transparent;-webkit-text-stroke:2px var(--sky)}
+.hero h1{white-space:nowrap;font-size:clamp(52px,8vw,100px);font-weight:800;line-height:.92}
+.hero h1 .sur{display:block;color:transparent;-webkit-text-stroke:2px var(--sky)}
 .hero p{color:var(--mute);font-size:19px;max-width:48ch;margin:28px 0 36px}
 .cta{display:flex;flex-wrap:wrap;gap:14px}
 .code{margin-top:40px;font:500 14px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:16px 20px;max-width:430px;color:var(--mute)}
@@ -218,7 +218,7 @@ h2::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:64px;bor
   section{padding:68px 0}
   .lead{margin-bottom:32px}
   .hero h1{font-size:clamp(46px,15vw,72px)}
-  .hero h1 span{-webkit-text-stroke:1.5px var(--sky)}
+  .hero h1 .sur{-webkit-text-stroke:1.5px var(--sky)}
   .hero p{font-size:17px}
   .cta .btn,.links .btn{flex:1 1 100%;justify-content:center;min-height:50px}
   nav .btn.main{display:none}
@@ -271,6 +271,8 @@ h2{font-size:clamp(38px,6vw,68px)}
 .cur.big{width:74px;height:74px;margin:-37px 0 0 -37px;background:rgba(240,200,112,.14)}
 @media(max-width:920px){.scroll{display:none}}
 @media(hover:none){.cur{display:none}}
+.hero h1 .ch{display:inline-block}
+.hero .wrap>*{min-width:0}
 </style>
 </head>
 <body>
@@ -299,7 +301,7 @@ h2{font-size:clamp(38px,6vw,68px)}
   <div class="wrap">
     <div>
       <div class="status"><b></b>Open to Front-End Developer roles</div>
-      <h1>Gold<span>Unnamatla</span></h1>
+      <h1>Gold<span class="sur">Unnamatla</span></h1>
       <div class="typed" aria-live="off">I build <span id="type">clean, responsive websites</span><i class="caret"></i></div>
       <p>I turn ideas into clean, responsive and user-friendly websites, backed by hands-on experience keeping cloud systems running.</p>
       <div class="cta">
