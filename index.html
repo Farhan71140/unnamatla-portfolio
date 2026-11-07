@@ -287,6 +287,25 @@ h2{font-size:clamp(38px,6vw,68px)}
   .js .reveal{transform:translateY(24px)}
   .js .job.reveal{transform:translateY(24px)}
 }
+
+/* ===== v5: awards ===== */
+.hl{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px}
+.hl span{padding:10px 20px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-weight:600;font-size:15px}
+.hl b{color:var(--sky)}
+.awards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.award{position:relative;display:flex;gap:22px;padding:30px;border:1px solid var(--line);border-radius:24px;overflow:hidden;
+  background-color:var(--card);background-image:var(--spot);transition:transform .25s,border-color .25s,box-shadow .25s}
+.award::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--sky),transparent)}
+.award:hover{transform:translateY(-5px);border-color:var(--sky);box-shadow:0 28px 56px -28px rgba(240,200,112,.45)}
+.medal{flex:none;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;font-size:26px;color:#4a3208;
+  background:radial-gradient(circle at 30% 25%,#fff3c4,#e0b04d 55%,#9a6b1c);box-shadow:0 12px 28px -8px rgba(240,200,112,.7),inset 0 0 0 3px rgba(255,255,255,.25)}
+.award time{color:var(--sun);font-weight:600;font-size:14px}
+.award h3{font-size:22px;margin:5px 0 6px}
+.award .org{color:var(--sky);font-size:14.5px;margin-bottom:10px}
+.award p{margin:0;color:var(--mute);font-size:15.5px}
+.menu.open a:nth-child(7){transition-delay:.38s}
+@media(max-width:920px){.awards{grid-template-columns:1fr}}
+@media(max-width:600px){.award{padding:22px 20px;gap:16px}.medal{width:46px;height:46px;font-size:19px}.award h3{font-size:20px}.hl span{font-size:14px;padding:8px 14px}}
 </style>
 </head>
 <body>
@@ -300,14 +319,14 @@ h2{font-size:clamp(38px,6vw,68px)}
     <ul>
       <li><a href="#about">About</a></li><li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li><li><a href="#skills">Skills</a></li>
-      <li><a href="#education">Education</a></li>
+      <li><a href="#education">Education</a></li><li><a href="#awards">Activities</a></li>
     </ul>
     <a class="btn main" href="#contact">Hire me</a>
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i></button>
   </div>
 </nav>
 <div class="menu" id="menu">
-  <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
+  <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#awards">Activities</a><a href="#contact">Contact</a>
 </div>
 
 <header class="hero" id="top">
@@ -462,11 +481,56 @@ h2{font-size:clamp(38px,6vw,68px)}
       <div class="certs">
                 <div class="cert"><i>A</i><div>AWS Cloud Practitioner<small>Amazon Web Services Training and Certification</small></div></div>
         <div class="cert"><i>M</i><div>Virtual Internship on Multi-Cloud (AWS)<small>Cube</small></div></div>
-        <div class="cert"><i>E</i><div>Electric Vehicles and Mobility<small>Vihaan Electrix</small></div></div>
-        <div class="cert"><i>D</i><div>Design Thinking for Innovation<small>Coursera</small></div></div>
+                <div class="cert"><i>D</i><div>Design Thinking for Innovation<small>Coursera</small></div></div>
         <div class="cert"><i>R</i><div>Understanding Research Methods<small>Coursera</small></div></div>
         <div class="cert"><i>N</i><div>Energy Engineering<small>Mindluster (Coursera)</small></div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="awards" style="background:var(--bg2)">
+  <div class="wrap">
+    <h2>Extra-curricular activities</h2>
+    <p class="lead">Sports and activities from my years at ANITS.</p>
+    <div class="hl"><span><b>2×</b> Cricket winners</span><span><b>Inter-collegiate</b> badminton</span><span><b>EV technology</b> workshop</span></div>
+    <div class="awards">
+      <article class="award">
+        <div class="medal">★</div>
+        <div>
+          <time>27 – 28 Feb 2023</time>
+          <h3>Workshop on Electric Vehicle (2W) Technology</h3>
+          <div class="org">Vihaan Electrix · ANITS, Visakhapatnam</div>
+          <p>Took part in a two-day workshop run by Vihaan Electrix for B.Tech EEE students. Certificate of Participation.</p>
+        </div>
+      </article>
+      <article class="award">
+        <div class="medal">★</div>
+        <div>
+          <time>11 – 25 Feb 2023</time>
+          <h3>Cricket: Winners</h3>
+          <div class="org">Annual Sports Day 2023 · ANITS</div>
+          <p>Secured the Winners position in Cricket for III year EEE during Annual Sports Day 2022–23. Certificate of Merit.</p>
+        </div>
+      </article>
+      <article class="award">
+        <div class="medal">★</div>
+        <div>
+          <time>2022 – 23</time>
+          <h3>Inter-Collegiate Badminton (Women)</h3>
+          <div class="org">Andhra University Sports Board</div>
+          <p>Represented ANITS on the women’s badminton team at the Inter-Collegiate Games and Sports 2022–23, held at Andhra University. Certificate of Merit.</p>
+        </div>
+      </article>
+      <article class="award">
+        <div class="medal">★</div>
+        <div>
+          <time>2021 – 22</time>
+          <h3>Cricket: Winners</h3>
+          <div class="org">Games &amp; Sports Certificate · ANITS</div>
+          <p>Stood Winners in Cricket for the II year EEE department in the competitions held on the eve of the Annual Games &amp; Sports.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -601,6 +665,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     history.replaceState(null,'',id);
   },wasOpen?380:0);
 }));
+
+/* ===== v5: awards motion ===== */
+document.querySelectorAll('.award').forEach((el,i)=>{
+  el.classList.add('reveal');el.style.setProperty('--d',(i%2)*.1+'s');io.observe(el);
+  if(fine&&!reduce)el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.setProperty('--mx',e.clientX-r.left+'px');el.style.setProperty('--my',e.clientY-r.top+'px')});
+});
 </script>
 </body>
 </html>
